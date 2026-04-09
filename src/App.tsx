@@ -1,7 +1,10 @@
 import "./App.css";
 import image from "./assets/tasks.png";
+import { useNavigate } from "react-router-dom";
 
 export default function App() {
+  const navigate = useNavigate();
+
   return (
     <div
       style={{
@@ -26,6 +29,59 @@ export default function App() {
         <p style={{ color: "#94a3b8" }}>
           You have <b>45 minutes</b> to complete this task.
         </p>
+        <div
+          style={{
+            color: "#94a3b8",
+            background: "#334155",
+            padding: "10px",
+            borderRadius: "8px",
+          }}
+        >
+          NB:
+          <ul>
+            <li>
+              Run{" "}
+              <code
+                style={{
+                  color: "orange",
+                  fontWeight: "300",
+                  fontSize: "18px",
+                }}
+              >
+                npm install
+              </code>{" "}
+              to install all dependencies.
+            </li>
+            <li>
+              To run the project, use{" "}
+              <code
+                style={{
+                  color: "orange",
+                  fontWeight: "300",
+                  fontSize: "18px",
+                }}
+              >
+                npm run dev
+              </code>{" "}
+              to start both the React app.
+            </li>
+            <li>
+              You're working on the{" "}
+              <u
+                style={{
+                  color: "orange",
+                  fontWeight: "600",
+                  fontSize: "16px",
+                  cursor: "pointer",
+                }}
+                onClick={() => navigate("/todos")}
+              >
+                /todos
+              </u>{" "}
+              route and remember to commit all your work within the timeframe.
+            </li>
+          </ul>
+        </div>
 
         <hr style={{ border: "1px solid #334155", margin: "20px 0" }} />
 
@@ -35,7 +91,15 @@ export default function App() {
             Create a git branch using your name (e.g. <code>feat_kenfack</code>)
           </li>
           <li>
-            Consume the API: <code>http://localhost:3000/todos</code>
+            Consume the API:{" "}
+            <a
+              style={{ textTransform: "none", color: "orange" }}
+              href="https://85f41e4d-eae6-4371-8335-1614e4dd38c9.mock.pstmn.io/todos"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://85f41e4d-eae6-4371-8335-1614e4dd38c9.mock.pstmn.io/todos
+            </a>
           </li>
           <li>
             Display todos in 3 columns:
@@ -45,6 +109,7 @@ export default function App() {
               <li>Completed</li>
             </ul>
           </li>
+          <li>Remove duplicates from every column</li>
           <li>Sort todos in every column by date (latest → oldest)</li>
           <li>Implement search by title</li>
         </ul>
